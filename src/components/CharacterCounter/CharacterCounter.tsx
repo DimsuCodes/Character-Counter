@@ -1,29 +1,20 @@
 // components/TextInput/TextInput.tsx
-import React from 'react';
-import type {CharacterCounterProps} from "../../types"
- import { useState } from "react";
-import StatsDisplay from '../StatsDisplay/StatsDisplay';
-import TextInput from '../TextInput/TextInput';
+import type { ChangeEvent } from "react";
+import type { TextInputProps } from "../../types";
 
+export default function TextInput({ onTextChange, placeholder, initialValue }: TextInputProps) {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    onTextChange(e.target.value);
+  };
 
-export const CharacterCounter: React.FC<CharacterCounterProps> = ({
-  minWords = 25,
-  maxWords,
-  targetReadingTime,
-}) => {
- const [text, setText] = useState(""); {
-
- }
-
- function onTextChange (text: string) {
-    setText(text)
-    console.log(text)
- }
   return (
-    <div className="w-full">
-      
-      <StatsDisplay/>
-      <TextInput onTextChange={onTextChange} />
-    </div>
+    <textarea
+      aria-label="Text to analyze"
+      className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      placeholder={placeholder}
+      defaultValue={initialValue}
+      onChange={handleChange}
+      rows={6}
+    />
   );
-};
+}
