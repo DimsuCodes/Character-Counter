@@ -1,20 +1,17 @@
-import type { TextInputProps } from "../../types"
-export default function TextInput(props: TextInputProps) {
-    let {
-    onTextChange,
-    placeholder,
-    initialValue} = props
+//The text input file is where we will  create the box that the users type inside of.*//
+import type { TextInputProps } from  '../../types/index'
 
+//destructing props directly in the fdunctions parameters
+export function TextInput ({onTextChange, placeholder = "Start typing here...", initialValue=''}:TextInputProps) {
     return(
-        <div>
-            <h1>Text Input</h1>
-            <textarea
-        className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        placeholder={placeholder}
-        defaultValue={initialValue}
-        onChange={(e) => onTextChange(e.target.value)}
-        rows={6}
-      />
+        <div>                                 {/* onChange = when change happens -- (e) = take the event, onTextChange(e.target.value) = send the text to the parent*/}
+            <textarea 
+            className="w-full p-4 border" 
+            defaultValue={initialValue} 
+            placeholder={placeholder} 
+            onChange={(e) => onTextChange(e.target.value)} 
+            aria-label="Text to analyze">
+            </textarea>
         </div>
     )
 }

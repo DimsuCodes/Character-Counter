@@ -1,8 +1,8 @@
-// types/index.ts
+// types/index.ts is where we put our props
 export interface TextInputProps {
   onTextChange: (text: string) => void;
-  placeholder?: string;
-  initialValue?: string;
+  placeholder?: 'Start typing here...';
+  initialValue?: '';
 }
 
 // types/index.ts
