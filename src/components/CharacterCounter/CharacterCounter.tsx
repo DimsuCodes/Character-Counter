@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { TextInput } from '../../components/TextInput/TextInput'
 import type { CharacterCounterProps } from '../../types/index'
+import { StatsDisplay } from '../StatsDisplay/StatsDisplay';
 
 export function CharacterCounter({minWords, maxWords, targetReadingTime}: CharacterCounterProps){
   const [text, setText] = useState('');
@@ -16,10 +17,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
   return(
     <div>
        <TextInput onTextChange={setText}/>
-       <p>{text}</p>
-       <p>{characterCount}</p>
-       <p>{wordCount}</p>
-       <p>{readingTime}</p>
+       <StatsDisplay stats={{ characterCount: characterCount, wordCount: wordCount, readingTime: readingTime }} />
     </div>
   )
 }
