@@ -1,12 +1,15 @@
 //Stats display is where the numbers will show.//
 import type { StatsDisplayProps } from  '../../types/index'
 
-export function StatsDisplay({stats, showReadingTime}: StatsDisplayProps){
+export function StatsDisplay({stats, showReadingTime= true}: StatsDisplayProps){
+
+    
     return(
         <div>
-            <p>{stats.characterCount}</p>
-            <p>{stats.wordCount}</p>
-            <p>{stats.readingTime}</p>
+            <p>Characters:{stats.characterCount}</p>
+            <p>Word Count:{stats.wordCount}</p>
+            {showReadingTime && <p>Reading Time:{stats.readingTime}</p>}
         </div>
     )
 }
+

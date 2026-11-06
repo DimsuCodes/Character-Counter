@@ -18,6 +18,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
     <div>
        <TextInput onTextChange={setText}/>
        <StatsDisplay stats={{ characterCount: characterCount, wordCount: wordCount, readingTime: readingTime }} />
+       
     </div>
   )
 }
