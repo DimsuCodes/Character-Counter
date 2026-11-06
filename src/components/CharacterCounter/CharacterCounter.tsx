@@ -8,7 +8,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
 
   const characterCount = text.length
 
-
+  const wordCount = text === "" ? 0 : text.split(" ").length;
 
   
 
@@ -18,7 +18,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
        <TextInput onTextChange={setText}/>
        <p>{text}</p>
        <p>{characterCount}</p>
-      
+       <p>{wordCount}</p>
 
     </div>
   )
