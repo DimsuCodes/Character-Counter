@@ -1,8 +1,8 @@
 // types/index.ts is where we put our props
 export interface TextInputProps {
   onTextChange: (text: string) => void;
-  placeholder?: 'Start typing here...';
-  initialValue?: '';
+  placeholder?: string;
+  initialValue?: string;
 }
 
 // types/index.ts
@@ -21,5 +21,5 @@ export interface StatsDisplayProps {
 export interface CharacterCounterProps {
   minWords?: number;
   maxWords?: number;
-  targetReadingTime?: number; // in minutes
+  targetReadingTime?:number; // in minutes
 }

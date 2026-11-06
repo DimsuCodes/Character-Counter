@@ -1,12 +1,9 @@
 import { CharacterCounter } from "./components/CharacterCounter/CharacterCounter"
-import { TextInput } from "./components/TextInput/TextInput"
 
 export default function App() {
     return (
     <>
-    <CharacterCounter />
-    <TextInput/>
-
+    <CharacterCounter minWords={25} maxWords={100} targetReadingTime={1} />
     </>
     
     )

@@ -5,10 +5,21 @@ import type { CharacterCounterProps } from '../../types/index'
 
 export function CharacterCounter({minWords, maxWords, targetReadingTime}: CharacterCounterProps){
   const [text, setText] = useState('');
+
+  const characterCount = text.length
+
+
+
+  
+
+  console.log(wordCount)
   return(
     <div>
        <TextInput onTextChange={setText}/>
        <p>{text}</p>
+       <p>{characterCount}</p>
+      
+
     </div>
   )
 }
