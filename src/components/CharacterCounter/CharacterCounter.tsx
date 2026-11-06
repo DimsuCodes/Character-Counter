@@ -4,7 +4,7 @@ import { TextInput } from '../../components/TextInput/TextInput'
 import type { CharacterCounterProps } from '../../types/index'
 import { StatsDisplay } from '../StatsDisplay/StatsDisplay';
 
-export function CharacterCounter({minWords, maxWords, targetReadingTime}: CharacterCounterProps){
+export function CharacterCounter({minWords= 25, maxWords= 100, targetReadingTime= 1}: CharacterCounterProps){
   const [text, setText] = useState('');
 
   const characterCount = text.length
@@ -18,7 +18,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
     <div>
        <TextInput onTextChange={setText}/>
        <StatsDisplay stats={{ characterCount: characterCount, wordCount: wordCount, readingTime: readingTime }} />
-       
+       <p>Min: {minWords} | Max: {maxWords} | Target: {targetReadingTime} min</p>
     </div>
   )
 }
