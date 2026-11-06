@@ -1,5 +1,5 @@
 //Inside of the character counter file is what holds the text and shows TextInput.//
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { TextInput } from '../../components/TextInput/TextInput'
 import type { CharacterCounterProps } from '../../types/index'
 import { StatsDisplay } from '../StatsDisplay/StatsDisplay';
@@ -9,13 +9,13 @@ export function CharacterCounter({minWords= 25, maxWords= 100, targetReadingTime
 //measuring the texts input
   const characterCount = text.length
 //creating word counter
-  const wordCount = text === "" ? 0 : text.split(" ").length;
+  const wordCount = text.trim() === "" ? 0 : text.trim().split(/\s+/).length;
 //creating reading timer
   const readingTime = (wordCount / 200)
-//creating out progress bar
-  const progress = (wordCount / maxWords)*100
+//creating out progress bar            //the * 100, 100 indicates  the max words is 100 and can't go past 100.
+  const progress = Math.min(wordCount / maxWords * 100, 100)
 
-  console.log(wordCount)
+
   return(
     <div>
        <TextInput onTextChange={setText}/>
