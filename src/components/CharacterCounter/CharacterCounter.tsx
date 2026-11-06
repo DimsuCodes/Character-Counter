@@ -10,7 +10,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
 
   const wordCount = text === "" ? 0 : text.split(" ").length;
 
-  
+  const readingTime = (wordCount / 200)
 
   console.log(wordCount)
   return(
@@ -19,7 +19,7 @@ export function CharacterCounter({minWords, maxWords, targetReadingTime}: Charac
        <p>{text}</p>
        <p>{characterCount}</p>
        <p>{wordCount}</p>
-
+       <p>{readingTime}</p>
     </div>
   )
 }
